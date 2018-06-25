@@ -19,9 +19,9 @@ PY4J_ZIP=$(echo ${PY4J_ZIP} | cut -d ' ' -f 1)
 echo "Found PY4J_ZIP: '${PY4J_ZIP}'" >&2
 
 if (( "${SPARK_MAJOR_VERSION}" >= 2 )); then
-  PACKAGES_ARG=''
+  PACKAGES_ARG='--packages com.spotify:spark-bigquery_2.10:0.2.0'
 else
-  PACKAGES_ARG='--packages com.databricks:spark-csv_2.10:1.3.0'
+  PACKAGES_ARG='--packages com.databricks:spark-csv_2.10:1.3.0,com.spotify:spark-bigquery_2.10:0.2.0'
 fi
 
 cat << EOF
